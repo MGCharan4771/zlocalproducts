@@ -1,0 +1,135 @@
+<mvc:View xmlns:filterbar="sap.ui.comp.filterbar" xmlns:f="sap.f" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" controllerName="zlocalproducts.controller.HomeView"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+
+    <f:DynamicPage id="123">
+        <f:title>
+            <f:DynamicPageTitle >
+                <f:heading>
+                    <Title text="Local Products"></Title>
+                </f:heading>
+            </f:DynamicPageTitle>
+        </f:title>
+
+        <f:header>
+            <f:DynamicPageHeader >
+                <f:content>
+                    <filterbar:FilterBar search="onSearch" >
+                        <filterbar:filterGroupItems>
+                            <filterbar:FilterGroupItem name="Material Number" label="Material Number" groupName="Group1" visibleInFilterBar="true">
+                                <filterbar:control>
+                                    <Input id="idmatno" showValueHelp="true" valueHelpRequest="onPrdidVH" />
+                                </filterbar:control>
+                            </filterbar:FilterGroupItem>
+                            <filterbar:FilterGroupItem name="Material Description" label="Material Description" groupName="Group1" visibleInFilterBar="true">
+                                <filterbar:control>
+                                    <Input id="idmatdesc" showValueHelp="true" valueHelpRequest="onprdnameVH" />
+                                </filterbar:control>
+                            </filterbar:FilterGroupItem>
+                            <filterbar:FilterGroupItem name="Type" label="Type" groupName="Group1" visibleInFilterBar="true">
+                                <filterbar:control>
+                                    <ComboBox id="idType" items="{/Material_DetSet}" >
+                                        <core:Item key="{Mat_Type}" text="{Mat_Type}"></core:Item>
+                                    </ComboBox>
+                                </filterbar:control>
+                            </filterbar:FilterGroupItem>
+                        </filterbar:filterGroupItems>
+                    </filterbar:FilterBar>
+                </f:content>
+            </f:DynamicPageHeader>
+        </f:header>
+
+        <f:content>
+            <Table id="idTable" items="{/Material_DetSet}">
+                <columns>
+                    <Column>
+                        <Text text="Material Number"></Text>
+                    </Column>
+                    <Column >
+                        <Text text="Material Description"></Text>
+                    </Column>
+                    <Column >
+                        <Text text="Material Type"></Text>
+                    </Column>
+                    <Column >
+                        <Text text="Volume"></Text>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem > 
+                        <cells>
+                            <!-- <Text text="{prdid}"/>
+                            <Text text="{path:'prdname', formatter: '.format.formatprdname'}"/>
+                            <ObjectStatus text="{prdprice}" state="{path:'prdstatus', formatter:'.format.formatprdprice'}"/>
+                            <ObjectStatus text="{prdstatus}" inverted="true" icon="sap-icon://sys-enter-2" 
+                                state="{=${prdprice} > 35000 ? 'Success' : 'Error'}" /> -->
+
+                            <Text text="{Mat_No}" ></Text>
+                            <Text text="{Mat_Des}"></Text>
+                            <Text text="{Mat_Type}" ></Text>
+                            <Text text="{Volum}"></Text>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </f:content>
+    </f:DynamicPage>
+    <!-- <Page id="page" title="{i18n>title}">
+        <content>
+            <form:SimpleForm editable="true" labelSpanXL="4" labelSpanL="4" labelSpanM="2" labelSpanS="12"
+                emptySpanXL="5" emptySpanL="0" emptySpanM="0" emptySpanS="0" title="{i18n>title}">
+                <form:content>
+                    <Label text="Product ID" design="Bold"></Label>
+                    <Input id="idprdid" />
+                    <Label text="Product Name" design="Bold"/>
+                    <Input id="idprdname"  ></Input>
+                    <Button text="Search" type="Emphasized" press="onSearch"></Button>
+                    <Label text="Status"></Label>
+                    <ComboBox id="idStatus" items="{/aProducts}" >
+                        <core:Item key="{prdid}" text="{prdstatus}"></core:Item>
+                    </ComboBox>
+                </form:content>
+            </form:SimpleForm>
+            <Table id="idTable" inset="true" items="{/aProducts}">
+                <columns>
+                    <Column>
+                        <Text text="Product ID"></Text>
+                    </Column>
+                    <Column >
+                        <Text text="Product Name"></Text>
+                    </Column>
+                    <Column >
+                        <Text text="Product Price"></Text>
+                    </Column>
+                    <Column >
+                        <Text text="Product Status"></Text>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem > 
+                        <cells>
+                            <Text text="{prdid}"/>
+                            <Text text="{path:'prdname', formatter: '.format.formatprdname'}"/>
+                            <ObjectStatus text="{prdprice}" state="{path:'prdstatus', formatter:'.format.formatprdprice'}"/>
+                            <ObjectStatus text="{prdstatus}" inverted="true" icon="sap-icon://sys-enter-2" 
+                                state="{=${prdprice} > 35000 ? 'Success' : 'Error'}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+        <footer>
+            <Bar>
+                <contentLeft>
+                    <Button text="Left Button"></Button>
+                </contentLeft>
+                <contentMiddle>
+                    <Button text="Middle Button"></Button>
+                </contentMiddle>
+                <contentRight>
+                    <Button text="Validate" type="Emphasized" press="onPressValidate" ></Button>
+                </contentRight>
+            </Bar>
+        </footer>
+    </Page> -->
+</mvc:View>

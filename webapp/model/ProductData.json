@@ -1,0 +1,40 @@
+{
+    "aProducts": [
+        {
+            "prdid": "PRD001",
+            "prdname": "Mobile",
+            "prdprice": 30000,
+            "prdstatus": "Available"
+        },
+        {
+            "prdid": "PRD002",
+            "prdname": "Laptop",
+            "prdprice": 50000,
+            "prdstatus": "Not Available"
+        },
+        {
+            "prdid": "PRD003",
+            "prdname": "TV",
+            "prdprice": 40000,
+            "prdstatus": "Shipping"
+        },
+        {
+            "prdid": "PRD004",
+            "prdname": "AC",
+            "prdprice": 60000,
+            "prdstatus": "Delivered"
+        },
+        {
+            "prdid": "PRD005",
+            "prdname": "Mouse",
+            "prdprice": 2000,
+            "prdstatus": "Shipping"
+        },
+        {
+            "prdid": "PRD006",
+            "prdname": "Remote",
+            "prdprice": 2500,
+            "prdstatus": "Delivered"
+        }
+    ]
+}

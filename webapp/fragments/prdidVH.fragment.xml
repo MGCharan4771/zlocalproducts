@@ -1,0 +1,25 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m">
+    <Dialog title="Product ID Dialog" contentWidth="40%">
+        <Table items="{/aProducts}">
+            <columns>
+                <Column >
+                    <Text text="Product ID"></Text>
+                </Column>
+                <Column >
+                    <Text text="Product Name"></Text>
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem type="Active" press="onSelectRow">
+                    <cells>
+                        <Text text="{prdid}"/>
+                        <Text text="{prdname}"/>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+        <endButton>
+            <Button text="Close" press="onCloseDialog"></Button>
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>
