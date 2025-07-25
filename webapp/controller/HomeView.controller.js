@@ -52,12 +52,12 @@ sap.ui.define([
             }
         },
         onSearch: function () {
-            let oModel = this.getView().getModel();
-            let MaterialModel = this.getView().getModel("MaterialModel")
-            let matno = this.getView().byId("idmatno").getValue();
-            let matdesc = this.getView().byId("idmatdesc").getValue();
-            let type = this.getView().byId("idType")._getSelectedItemText();
-            let aFilters = [];
+            let oModel = this.getView().getModel(),
+                MaterialModel = this.getView().getModel("MaterialModel"),
+                matno = this.getView().byId("idmatno").getValue(),
+                matdesc = this.getView().byId("idmatdesc").getValue(),
+                type = this.getView().byId("idType")._getSelectedItemText(),
+                aFilters = [];
 
             if (matno) {
                 var prdidFilterValue = new Filter("Mat_No", FilterOperator.EQ, matno);
@@ -74,14 +74,18 @@ sap.ui.define([
             // let table = this.getView().byId("idTable");
             // table.getBinding("items").filter(aFilters);
 
+            sap.ui.core.BusyIndicator.show()
             oModel.read("/Material_DetSet", {
+                filters: aFilters,
                 success: function (response) {
                     console.log(response);
                     MaterialModel.setProperty("/", response);
                     MaterialModel.updateBindings(true);
+                    sap.ui.core.BusyIndicator.hide()
                 },
                 error: function (error) {
-                    console.log(error)
+                    console.log(error);
+                    sap.ui.core.BusyIndicator.hide()
                 }
             });
 
@@ -118,6 +122,14 @@ sap.ui.define([
             this.getView().byId("idprdid").setValue(prdid);
             this.getView().byId("idprdname").setValue(prdname)
             this.onCloseDialog();
+        },
+        onPressRow: function (oEvent) {
+            var selobj = oEvent.getSource().getBindingContext("MaterialModel").getObject();
+           
+            var oRouter = this.getOwnerComponent().getRouter()
+            oRouter.navTo("RouteDetail", {
+                matnumber: selobj.Mat_No
+            })
         }
     });
 });

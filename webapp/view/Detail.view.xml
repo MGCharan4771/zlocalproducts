@@ -1,0 +1,6 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" controllerName="zlocalproducts.controller.Detail"
+    xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+    <Page title="Material Detail Page" showNavButton="true" navButtonPress="onPressNavBack">
+    
+    </Page>
+</mvc:View>

@@ -40,7 +40,7 @@
         </f:header>
 
         <f:content>
-            <Table id="idTable" items="{/Material_DetSet}">
+            <Table id="idTable" items="{MaterialModel>/results}" headerText="Material Detail Table">
                 <columns>
                     <Column>
                         <Text text="Material Number"></Text>
@@ -56,18 +56,12 @@
                     </Column>
                 </columns>
                 <items>
-                    <ColumnListItem > 
+                    <ColumnListItem type="Active" press="onPressRow"> 
                         <cells>
-                            <!-- <Text text="{prdid}"/>
-                            <Text text="{path:'prdname', formatter: '.format.formatprdname'}"/>
-                            <ObjectStatus text="{prdprice}" state="{path:'prdstatus', formatter:'.format.formatprdprice'}"/>
-                            <ObjectStatus text="{prdstatus}" inverted="true" icon="sap-icon://sys-enter-2" 
-                                state="{=${prdprice} > 35000 ? 'Success' : 'Error'}" /> -->
-
-                            <Text text="{Mat_No}" ></Text>
-                            <Text text="{Mat_Des}"></Text>
-                            <Text text="{Mat_Type}" ></Text>
-                            <Text text="{Volum}"></Text>
+                            <Text text="{MaterialModel>Mat_No}" ></Text>
+                            <Text text="{MaterialModel>Mat_Des}"></Text>
+                            <Text text="{MaterialModel>Mat_Type}" ></Text>
+                            <Text text="{MaterialModel>Volum}"></Text>
                         </cells>
                     </ColumnListItem>
                 </items>

@@ -68,7 +68,7 @@
         "preload": true,
         "settings": {}
       },
-      "productModel" : {
+      "productModel": {
         "type": "sap.ui.model.json.JSONModel",
         "uri": "model/ProductData.json"
       }
@@ -99,12 +99,23 @@
           "target": [
             "TargetHomeView"
           ]
+        },
+        {
+          "name": "RouteDetail",
+          "pattern": "Detail/{matnumber}",
+          "target": [
+            "TargetDetail"
+          ]
         }
       ],
       "targets": {
         "TargetHomeView": {
           "id": "HomeView",
           "name": "HomeView"
+        },
+        "TargetDetail": {
+          "id": "Detail",
+          "name": "Detail"
         }
       }
     },
