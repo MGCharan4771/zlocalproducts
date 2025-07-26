@@ -1,6 +1,58 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" controllerName="zlocalproducts.controller.Detail"
     xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
     <Page title="Material Detail Page" showNavButton="true" navButtonPress="onPressNavBack">
-    
+        <form:SimpleForm layout="ColumnLayout" columnsXL="2" columnsL="2" columnsM="2" editable="true">
+            <form:content>
+                <Label text="Material Number" design="Bold"></Label>
+                <Input value="{DetailModel>/Mat_No}" editable="false"></Input>
+                <Label text="Material Description" design="Bold"></Label>
+                <Input value="{DetailModel>/Mat_Des}"></Input>
+                <Label text="Industry" design="Bold"></Label>
+                <Input value="{DetailModel>/Industry}"></Input>
+                <Label text="Material Group" design="Bold"></Label>
+                <Input value="{DetailModel>/Mat_Group}"></Input>
+            </form:content>
+        </form:SimpleForm>
+        <Table headerText="Line Item Details" items="{DetailModel>/mattransportdetnav/results}">
+            <columns>
+                <Column >
+                    <Text text="Manufacturer"></Text>
+                </Column>
+                <Column >
+                    <Text text="Net Content"></Text>
+                </Column>
+                <Column >
+                    <Text text="Packaging Material"></Text>
+                </Column>
+                <Column >
+                    <Text text="Transport Group"></Text>
+                </Column>
+                <Column >
+                    <Text text="Supply Source"></Text>
+                </Column>
+                <Column >
+                    <Text text="Storage Condition"></Text>
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem >
+                    <cells>
+                        <Text text="{DetailModel>Mfg_No}"></Text>
+                        <Text text="{DetailModel>Net_Content}"></Text>
+                        <Text text="{DetailModel>Packag_Mat}"></Text>
+                        <Text text="{DetailModel>Trans_Group}"></Text>
+                        <Text text="{DetailModel>Supply_Source}"></Text>
+                        <Text text="{DetailModel>Strg_Condition}"></Text>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+        <footer>
+            <Bar >
+                <contentRight>
+                    <Button text="Update" type="Emphasized" press="onPressUpdate"></Button>
+                </contentRight>
+            </Bar>
+        </footer>
     </Page>
 </mvc:View>

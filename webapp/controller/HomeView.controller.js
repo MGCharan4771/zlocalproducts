@@ -130,6 +130,10 @@ sap.ui.define([
             oRouter.navTo("RouteDetail", {
                 matnumber: selobj.Mat_No
             })
+        },
+        onPressCreate: function(){
+            var oRouter = this.getOwnerComponent().getRouter()
+            oRouter.navTo("RouteCreate")
         }
     });
 });

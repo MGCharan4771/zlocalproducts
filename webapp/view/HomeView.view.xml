@@ -40,7 +40,14 @@
         </f:header>
 
         <f:content>
-            <Table id="idTable" items="{MaterialModel>/results}" headerText="Material Detail Table">
+            <Table id="idTable" items="{MaterialModel>/results}">
+                <headerToolbar>
+                    <OverflowToolbar >
+                        <Title text="Material Detail Table"></Title>
+                        <ToolbarSpacer ></ToolbarSpacer>
+                        <Button text="Create" press="onPressCreate"></Button>
+                    </OverflowToolbar>
+                </headerToolbar>
                 <columns>
                     <Column>
                         <Text text="Material Number"></Text>

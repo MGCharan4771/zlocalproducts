@@ -1,0 +1,3 @@
+<mvc:View  controllerName="zlocalproducts.controller.Create" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+    <Page title="Create New Record"></Page>
+</mvc:View>

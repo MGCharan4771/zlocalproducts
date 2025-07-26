@@ -106,6 +106,13 @@
           "target": [
             "TargetDetail"
           ]
+        },
+        {
+          "name": "RouteCreate",
+          "pattern": "Create",
+          "target": [
+            "TargetCreate"
+          ]
         }
       ],
       "targets": {
@@ -116,6 +123,10 @@
         "TargetDetail": {
           "id": "Detail",
           "name": "Detail"
+        },
+        "TargetCreate" : {
+          "id": "Create",
+          "name": "Create"
         }
       }
     },
