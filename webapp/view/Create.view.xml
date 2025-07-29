@@ -1,3 +1,61 @@
-<mvc:View  controllerName="zlocalproducts.controller.Create" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
-    <Page title="Create New Record"></Page>
+<mvc:View  controllerName="zlocalproducts.controller.Create" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:form="sap.ui.layout.form">
+    <Page title="Create New Record">
+        <form:SimpleForm layout="ColumnLayout" columnsXL="2" columnsL="2" columnsM="2" editable="true">
+            <form:content>
+                <Label text="Material Type" design="Bold"></Label>
+                <Input value="{CreateModel>/Mat_Type}"></Input>
+                <Label text="Material Description" design="Bold"></Label>
+                <Input value="{CreateModel>/Mat_Des}"></Input>
+                <Label text="Industry" design="Bold"></Label>
+                <Input value="{CreateModel>/Industry}"></Input>
+                <Label text="Material Group" design="Bold"></Label>
+                <Input value="{CreateModel>/Mat_Group}"></Input>
+            </form:content>
+        </form:SimpleForm>
+        <Table inset="true" items="{LineitemModel>/aLineitems}">
+            <headerToolbar>
+                <OverflowToolbar >
+                    <Title text="Line Item Details"></Title>
+                    <ToolbarSpacer ></ToolbarSpacer>
+                    <Button text="Add" icon="sap-icon://add-employee" type="Emphasized" press="onPressAdd" iconFirst="false"></Button>
+                </OverflowToolbar>
+            </headerToolbar>
+            <columns>
+                <Column >
+                    <Text text="Manufacturer"></Text>
+                </Column>
+                <Column >
+                    <Text text="Net Content"></Text>
+                </Column>
+                <Column >
+                    <Text text="Packaging Material"></Text>
+                </Column>
+                <Column >
+                    <Text text="Transport Group"></Text>
+                </Column>
+                <Column >
+                    <Text text="Supply Source"></Text>
+                </Column>
+                <Column >
+                    <Text text="Storage Condition"></Text>
+                </Column>
+                <Column width="5%" >
+                    <Text text=""></Text>
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem >
+                    <cells>
+                        <Input value="{LineitemModel>Mfg_No}"/>
+                        <Input value="{LineitemModel>Net_Content}"/>
+                        <Input value="{LineitemModel>Packag_Mat}"/>
+                        <Input value="{LineitemModel>Trans_Group}"/>
+                        <Input value="{LineitemModel>Supply_Source}"/>
+                        <Input value="{LineitemModel>Strg_Condition}"/>
+                        <Button icon="sap-icon://delete" type="Reject" press="onPressDelete"></Button>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+    </Page>
 </mvc:View>

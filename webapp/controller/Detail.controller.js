@@ -22,7 +22,7 @@ sap.ui.define([
                     "$expand": "mattransportdetnav"
                 },
                 success: function (response) {
-                    console.log(response);
+                    
                     DetailModel.setProperty("/", response);
                     DetailModel.updateBindings(true)
                     sap.ui.core.BusyIndicator.hide()
