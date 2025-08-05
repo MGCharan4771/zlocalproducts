@@ -139,15 +139,15 @@ sap.ui.define([
             var selobj = oEvent.getSource().getBindingContext("MaterialModel").getObject();
             var matnumber = selobj.Mat_No;
             var oModel = this.getView().getModel();
-            oModel.remove("/Material_DetSet('" + matnumber + "')", {
-                success: function (response) {
-                    console.log(response);
-                    this.onSearch();
-                }.bind(this),
-                error: function (error) {
-                    console.log(error)
-                }
-            });
+            // oModel.remove("/Material_DetSet('" + matnumber + "')", {
+            //     success: function (response) {
+            //         console.log(response);
+            //         this.onSearch();
+            //     }.bind(this),
+            //     error: function (error) {
+            //         console.log(error)
+            //     }
+            // });
 
             MessageBox.confirm("Are you sure want to delete?", {
                 title: 'Deletion Confirmation',
