@@ -46,6 +46,32 @@ sap.ui.define([
             var index = Number(selected);
             LineitemModelData.splice(index, 1);
             LineitemModel.updateBindings(true)
+        },
+        onPressSave: function () {
+            var CreateModel = this.getView().getModel("CreateModel");
+            var LineitemModel = this.getView().getModel("LineitemModel");
+            var oModel = this.getView().getModel();
+
+            var payload = {
+                "Mat_Des": CreateModel.getData().Mat_Des,
+                "Industry": CreateModel.getData().Industry,
+                "Mat_Group": CreateModel.getData().Mat_Group,
+                "Mat_Type": CreateModel.getData().Mat_Type,
+                "mattransportdetnav": {
+                    "results": LineitemModel.getData().aLineitems
+                }
+            };
+
+            oModel.create("/Material_DetSet", payload, {
+                success: function (response) {
+                    console.log(response);
+                    // MessageBox.success("Material " + response.Mat_No + "Created Successfully");
+                    MessageBox.success(`Material ${response.Mat_No} Created Successfully`);
+                },
+                error: function (error) {
+                    console.log(error)
+                }
+            });
         }
     });
 });

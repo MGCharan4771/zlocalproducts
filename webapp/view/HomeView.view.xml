@@ -61,6 +61,9 @@
                     <Column >
                         <Text text="Volume"></Text>
                     </Column>
+                     <Column width="5%">
+                        <Text ></Text>
+                    </Column>
                 </columns>
                 <items>
                     <ColumnListItem type="Active" press="onPressRow"> 
@@ -69,6 +72,7 @@
                             <Text text="{MaterialModel>Mat_Des}"></Text>
                             <Text text="{MaterialModel>Mat_Type}" ></Text>
                             <Text text="{MaterialModel>Volum}"></Text>
+                            <Button icon="sap-icon://delete" type="Reject" press="onPressDelete"></Button>
                         </cells>
                     </ColumnListItem>
                 </items>

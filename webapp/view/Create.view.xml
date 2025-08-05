@@ -1,5 +1,6 @@
 <mvc:View  controllerName="zlocalproducts.controller.Create" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:form="sap.ui.layout.form">
     <Page title="Create New Record">
+        <content>
         <form:SimpleForm layout="ColumnLayout" columnsXL="2" columnsL="2" columnsM="2" editable="true">
             <form:content>
                 <Label text="Material Type" design="Bold"></Label>
@@ -57,5 +58,13 @@
                 </ColumnListItem>
             </items>
         </Table>
+        </content>
+        <footer>
+            <Bar >
+                <contentRight>
+                    <Button text="Save" type="Emphasized" press="onPressSave"></Button>
+                </contentRight>
+            </Bar>
+        </footer>
     </Page>
 </mvc:View>

@@ -125,15 +125,48 @@ sap.ui.define([
         },
         onPressRow: function (oEvent) {
             var selobj = oEvent.getSource().getBindingContext("MaterialModel").getObject();
-           
+
             var oRouter = this.getOwnerComponent().getRouter()
             oRouter.navTo("RouteDetail", {
                 matnumber: selobj.Mat_No
             })
         },
-        onPressCreate: function(){
+        onPressCreate: function () {
             var oRouter = this.getOwnerComponent().getRouter()
             oRouter.navTo("RouteCreate")
+        },
+        onPressDelete: function (oEvent) {
+            var selobj = oEvent.getSource().getBindingContext("MaterialModel").getObject();
+            var matnumber = selobj.Mat_No;
+            var oModel = this.getView().getModel();
+            oModel.remove("/Material_DetSet('" + matnumber + "')", {
+                success: function (response) {
+                    console.log(response);
+                    this.onSearch();
+                }.bind(this),
+                error: function (error) {
+                    console.log(error)
+                }
+            });
+
+            MessageBox.confirm("Are you sure want to delete?", {
+                title: 'Deletion Confirmation',
+                onClose: function (Action) {
+                    if (Action === 'OK') {
+                        oModel.remove("/Material_DetSet('" + matnumber + "')", {
+                            success: function (response) {
+                                console.log(response);
+                                this.onSearch();
+                            }.bind(this),
+                            error: function (error) {
+                                console.log(error)
+                            }
+                        });
+                    }
+                },
+                actions: [sap.m.MessageBox.Action.OK,sap.m.MessageBox.Action.CANCEL],         
+                emphasizedAction: sap.m.MessageBox.Action.OK
+            })
         }
     });
 });
